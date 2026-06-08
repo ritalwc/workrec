@@ -422,14 +422,42 @@
         }
 
         .dash-items-list li {
-            font-size: 14px;
-            margin-bottom: 5px;
+            font-size: 15px;
+            margin-bottom: 8px;
             font-family: monospace;
-            border-left: 3px solid #3498db;
-            padding-left: 10px;
-            color: #f1f2f6;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+            color: #ffffff;
+            line-height: 1.8;
         }
         
+        /* 專門優化：合併行內的自訂精緻標籤樣式 */
+        .title-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            margin: 3px 4px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        /* 五種不同專案顏色的半透明調色盤 */
+        .tag-color-0 { background-color: rgba(52, 152, 219, 0.25); color: #74b9ff; border-color: rgba(52, 152, 219, 0.4); }
+        .tag-color-1 { background-color: rgba(46, 204, 113, 0.25); color: #55efc4; border-color: rgba(46, 204, 113, 0.4); }
+        .tag-color-2 { background-color: rgba(241, 196, 15, 0.22); color: #ffeaa7; border-color: rgba(241, 196, 15, 0.4); }
+        .tag-color-3 { background-color: rgba(155, 89, 182, 0.25); color: #a29bfe; border-color: rgba(155, 89, 182, 0.4); }
+        .tag-color-4 { background-color: rgba(231, 76, 60, 0.22); color: #ff7675; border-color: rgba(231, 76, 60, 0.4); }
+
+        .company-label-style {
+            background-color: rgba(255,255,255,0.1);
+            padding: 1px 6px;
+            border-radius: 3px;
+            color: #ecf0f1;
+            font-weight: bold;
+            margin-right: 4px;
+        }
+
         .dash-section-title .status-amt {
             color: #2ecc71;
             font-family: monospace;
@@ -914,7 +942,7 @@
     }
 
     function updateCalculations() {
-        let globalAnnualTotal = 0; // 存放12個月內所有項目收入總和
+        let globalAnnualTotal = 0; 
         let waitingTotal = 0, noInvTotal = 0, ongoingTotal = 0;
         let estMonthStats = {};
         
@@ -941,7 +969,6 @@
                 const plat = row.platform;
                 const status = row.status;
                 
-                // 累加 12 個月內的所有金額
                 globalAnnualTotal += amt;
 
                 if (row.company) {
@@ -958,7 +985,7 @@
                     estMonthStats[payoutMonth] += amt;
 
                     if (!companyWaitingGroup[comp]) companyWaitingGroup[comp] = [];
-                    companyWaitingGroup[comp].push(`${titleText} (${payoutMonth}收 / $${amt.toLocaleString()})`);
+                    companyWaitingGroup[comp].push({ title: titleText, desc: `(${payoutMonth}收 / $${amt.toLocaleString()})` });
 
                     if (comp === "WB" || comp === "Sony") {
                         if (plat === "Pixel") {
@@ -984,21 +1011,20 @@
                     
                     if (!companyNoInvGroup[comp]) companyNoInvGroup[comp] = [];
                     let checkBadgeText = (isCheckInvoiceTriggered(row) && row.checkInvoiceMonth) ? ` (📝 check ${row.checkInvoiceMonth}單)` : '';
-                    companyNoInvGroup[comp].push(`${titleText}${checkBadgeText} ($${amt.toLocaleString()})`);
+                    companyNoInvGroup[comp].push({ title: titleText, desc: `${checkBadgeText} ($${amt.toLocaleString()})` });
 
                 } else if (status === "進行中") {
                     ongoingTotal += amt;
                     
                     if (!companyOngoingGroup[comp]) companyOngoingGroup[comp] = [];
-                    companyOngoingGroup[comp].push(`${titleText} ($${amt.toLocaleString()})`);
+                    companyOngoingGroup[comp].push({ title: titleText, desc: `($${amt.toLocaleString()})` });
                 }
             });
         });
 
-        // 渲染頂部大字置中看板金額
         document.getElementById('headline-annual-total').innerText = `$${globalAnnualTotal.toLocaleString()}`;
 
-        // 1. 渲染：全年各公司年度業績總計
+        // 1. 全年各公司年度業績總計
         const companyGridArea = document.getElementById('company-annual-grid-area');
         companyGridArea.innerHTML = '';
         Object.keys(companyAnnualStats).forEach(cName => {
@@ -1013,7 +1039,7 @@
             companyGridArea.appendChild(card);
         });
 
-        // 2. 渲染：預計收錢月份金額統計
+        // 2. 預計收錢月份金額統計
         const monthGridArea = document.getElementById('monthly-est-grid-area');
         monthGridArea.innerHTML = '';
         const sortedMonths = Object.keys(estMonthStats).sort();
@@ -1031,11 +1057,10 @@
             });
         }
 
-        // 3. 渲染：平台結算規律與【等收】帳目摘要
+        // 3. 平台結算規律與摘要
         const formatPlatformLine = (label, list) => {
             return `<div>${label}： ${list.length ? '<strong>' + list.join(' / ') + '</strong>' : '無等收項目'}</div>`;
         };
-
         let rulesHTML = `
             <div style="font-weight: bold; margin-bottom: 10px; color: #3498db; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom:5px;">📋 平台結算規律與【等收】帳目摘要：</div>
             ${formatPlatformLine("Pixel (一般 20 號)", platformDetails["Pixel"])}
@@ -1047,24 +1072,39 @@
         `;
         document.getElementById('platform-rules-area').innerHTML = rulesHTML;
 
-        // 4. 生成按公司合併串接後的列表 HTML
+        // 4. 【核心視覺修正】為這 3 欄生成帶有不同顏色標籤的戲目 HTML
+        // 等收項目
         let waitingListHTML = [];
         Object.keys(companyWaitingGroup).forEach(compKey => {
-            waitingListHTML.push(`<li>【${compKey}】 <strong>${companyWaitingGroup[compKey].join(' / ')}</strong></li>`);
+            let tagsHTML = companyWaitingGroup[compKey].map((item, idx) => {
+                let colorClass = `tag-color-${idx % 5}`; // 依項目序號循環 5 種顏色
+                return `<span class="title-tag ${colorClass}">${item.title} <span style="font-weight:normal; opacity:0.85;">${item.desc}</span></span>`;
+            }).join('');
+            waitingListHTML.push(`<li><span class="company-label-style">【${compKey}】</span> ${tagsHTML}</li>`);
         });
         document.getElementById('dash-waiting-total').innerText = `$${waitingTotal.toLocaleString()}`;
         document.getElementById('dash-waiting-list').innerHTML = waitingListHTML.length ? waitingListHTML.join('') : '<li>無符合條件之項目</li>';
 
+        // 未出 invoice 項目
         let noInvListHTML = [];
         Object.keys(companyNoInvGroup).forEach(compKey => {
-            noInvListHTML.push(`<li>【${compKey}】 <strong>${companyNoInvGroup[compKey].join(' / ')}</strong></li>`);
+            let tagsHTML = companyNoInvGroup[compKey].map((item, idx) => {
+                let colorClass = `tag-color-${idx % 5}`;
+                return `<span class="title-tag ${colorClass}">${item.title} <span style="font-weight:normal; opacity:0.85;">${item.desc}</span></span>`;
+            }).join('');
+            noInvListHTML.push(`<li><span class="company-label-style">【${compKey}】</span> ${tagsHTML}</li>`);
         });
         document.getElementById('dash-no-inv-total').innerText = `$${noInvTotal.toLocaleString()}`;
         document.getElementById('dash-no-inv-list').innerHTML = noInvListHTML.length ? noInvListHTML.join('') : '<li>無符合條件之項目</li>';
 
+        // 進行中項目
         let ongoingListHTML = [];
         Object.keys(companyOngoingGroup).forEach(compKey => {
-            ongoingListHTML.push(`<li>【${compKey}】 <strong>${companyOngoingGroup[compKey].join(' / ')}</strong></li>`);
+            let tagsHTML = companyOngoingGroup[compKey].map((item, idx) => {
+                let colorClass = `tag-color-${idx % 5}`;
+                return `<span class="title-tag ${colorClass}">${item.title} <span style="font-weight:normal; opacity:0.85;">${item.desc}</span></span>`;
+            }).join('');
+            ongoingListHTML.push(`<li><span class="company-label-style">【${compKey}】</span> ${tagsHTML}</li>`);
         });
         document.getElementById('dash-ongoing-total').innerText = `$${ongoingTotal.toLocaleString()}`;
         document.getElementById('dash-ongoing-list').innerHTML = ongoingListHTML.length ? ongoingListHTML.join('') : '<li>無符合條件之項目</li>';
