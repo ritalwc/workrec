@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒體本地化專案排程管理系統</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, 'Microsoft JhengHei', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            padding: 25px 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .controls {
+            padding: 15px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-import { background: #2ecc71; }
+        .btn-import:hover { background: #27ae60; }
+        .btn-export { background: #17a2b8; }
+        .btn-export:hover { background: #138496; }
+        .btn-reset { background: #e74c3c; }
+        .btn-reset:hover { background: #c0392b; }
+        .btn-github-upload { background: #9b59b6; }
+        .btn-github-upload:hover { background: #8e44ad; }
+        .btn-github-download { background: #e67e22; }
+        .btn-github-download:hover { background: #d35400; }
+        .btn-github-settings { background: #7f8c8d; }
+        .btn-github-settings:hover { background: #718093; }
+        .btn-primary { background: #3498db; }
+        .btn-primary:hover { background: #2980b9; }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 600px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout { grid-template-columns: 1fr; }
+        }
+
+        .sidebar {
+            padding: 25px;
+            background: #fcfcfc;
+            border-right: 1px solid #e9ecef;
+        }
+
+        .content-area {
+            padding: 25px;
+            overflow-x: auto;
+        }
+
+        .form-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            margin-bottom: 20px;
+        }
+
+        .form-section h2 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 0.9em;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #3498db;
+        }
+
+        .company-pool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .company-tag {
+            background: #eaeded;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .company-tag .remove-tag {
+            color: #e74c3c;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* 月份顏色邏輯交替表 */
+        .month-group {
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .month-header {
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: white;
+        }
+
+        /* 根據月份循環套用不同色系 */
+        .month-m1 .month-header { background-color: #3b82f6; } /* 藍色 */
+        .month-m2 .month-header { background-color: #10b981; } /* 綠色 */
+        .month-m3 .month-header { background-color: #f59e0b; } /* 橘黃 */
+        .month-m4 .month-header { background-color: #ec4899; } /* 粉紅 */
+        .month-m5 .month-header { background-color: #8b5cf6; } /* 紫色 */
+        .month-m6 .month-header { background-color: #06b6d4; } /* 青色 */
+        .month-m7 .month-header { background-color: #f43f5e; } /* 玫瑰紅 */
+        .month-m8 .month-header { background-color: #a855f7; } /* 亮紫 */
+        .month-m9 .month-header { background-color: #14b8a6; } /* 翡翠綠 */
+        .month-m10 .month-header { background-color: #f97316; } /* 橙色 */
+        .month-m11 .month-header { background-color: #6366f1; } /* 靛藍 */
+        .month-m12 .month-header { background-color: #64748b; } /* 藍灰 */
+
+        .month-m1 { border-color: #3b82f6; background-color: #f0f6ff; }
+        .month-m2 { border-color: #10b981; background-color: #f0fdf4; }
+        .month-m3 { border-color: #f59e0b; background-color: #fffbeb; }
+        .month-m4 { border-color: #ec4899; background-color: #fdf2f8; }
+        .month-m5 { border-color: #8b5cf6; background-color: #f5f3ff; }
+        .month-m6 { border-color: #06b6d4; background-color: #ecfeff; }
+        .month-m7 { border-color: #f43f5e; background-color: #fff1f2; }
+        .month-m8 { border-color: #a855f7; background-color: #faf5ff; }
+        .month-m9 { border-color: #14b8a6; background-color: #f0fdfa; }
+        .month-m10 { border-color: #f97316; background-color: #fff7ed; }
+        .month-m11 { border-color: #6366f1; background-color: #eef2ff; }
+        .month-m12 { border-color: #64748b; background-color: #f8fafc; }
+
+        project-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .project-table th {
+            background: rgba(0,0,0,0.05);
+            color: #333;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(0,0,0,0.08);
+        }
+
+        .project-table td {
+            padding: 12px 15px;
+            font-size: 0.9em;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: #444;
+            background: white;
+        }
+
+        .project-table tr:hover td {
+            background: rgba(0,0,0,0.01);
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.8em;
+            border-radius: 4px;
+        }
+
+        .btn-edit { background: #f1c40f; color: #333; }
+        .btn-edit:hover { background: #f39c12; }
+        .btn-delete { background: #e74c3c; color: white; }
+        .btn-delete:hover { background: #c0392b; }
+
+        /* Modal 彈窗樣式 */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center; align-items: center;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal-content {
+            background: white; padding: 25px; border-radius: 10px;
+            max-width: 500px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;
+        }
+
+        .modal-close {
+            background: none; border: none; font-size: 1.5em; cursor: pointer; color: #aaa;
+        }
+
+        .sync-status {
+            padding: 10px; border-radius: 6px; margin-bottom: 15px; display: none; font-size: 0.9em;
+        }
+        .sync-status.success { display: block; background: #d4edda; color: #155724; }
+        .sync-status.error { display: block; background: #f8d7da; color: #721c24; }
+
+        .empty-state {
+            text-align: center; padding: 40px; color: #999; font-style: italic; background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GitHub 設定彈窗 -->
+    <div class="modal-overlay" id="githubModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ GitHub 雲端同步設定</h2>
+                <button class="modal-close" onclick="closeGithubModal()">&times;</button>
+            </div>
+            <div>
+                <div id="syncStatus" class="sync-status"></div>
+                <div class="form-group">
+                    <label>GitHub Personal Access Token</label>
+                    <input type="password" id="githubToken" class="form-control" placeholder="ghp_xxxxxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Repository (儲存庫)</label>
+                    <input type="text" id="githubRepo" class="form-control" placeholder="格式: 使用者名稱/專案名稱">
+                </div>
+                <div class="form-group">
+                    <label>JSON 檔案儲存路徑</label>
+                    <input type="text" id="githubPath" class="form-control" value="data/project-deadline.json">
+                </div>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button class="btn btn-github-settings" style="background:#95a5a6;" onclick="closeGithubModal()">取消</button>
+                    <button class="btn btn-import" onclick="saveGithubSettings()">儲存設定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 頂部標題列 -->
+        <div class="header">
+            <h1>🎬 翻譯與上映時程排程管理系統</h1>
+        </div>
+
+        <!-- 全域功能控制列 -->
+        <div class="controls">
+            <button class="btn btn-import" onclick="triggerLocalImport()">📥 導入本地檔案</button>
+            <button class="btn btn-export" onclick="exportLocalJson()">📤 導出本地檔案</button>
+            <button class="btn btn-reset" onclick="resetAllData()">🔄 重置系統</button>
+            <button class="btn btn-github-upload" onclick="uploadToGithub()">☁️ 上傳到 GitHub</button>
+            <button class="btn btn-github-download" onclick="downloadFromGithub()">📥 從 GitHub 下載</button>
+            <button class="btn btn-github-settings" onclick="openGithubModal()">⚙️ 同步設定</button>
+            <input type="file" id="localFileInput" style="display:none;" accept=".json" onchange="handleLocalImport(event)">
+        </div>
+
+        <!-- 主要排版版面 -->
+        <div class="main-layout">
+            <!-- 左側：資料輸入與類別編輯面板 -->
+            <div class="sidebar">
+                <!-- 表單：新增/修改專案 -->
+                <div class="form-section">
+                    <h2 id="formTitle">➕ 新增專案紀錄</h2>
+                    <input type="hidden" id="editingId">
+                    
+                    <div class="form-group">
+                        <label>公司名稱</label>
+                        <select id="projCompany" class="form-control"></select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>片名 / 專案項目</label>
+                        <input type="text" id="projTitle" class="form-control" placeholder="例如: 惡靈古堡 / Minions">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>上映日期 (Release Date)</label>
+                        <input type="date" id="projReleaseDate" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>交稿截稿期限 (Deadline)</label>
+                        <input type="date" id="projDeadline" class="form-control">
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <button class="btn btn-primary" id="btnSubmitProject" onclick="saveProject()" style="width:100%; justify-content:center;">儲存紀錄</button>
+                        <button class="btn btn-github-settings" id="btnCancelEdit" onclick="cancelProjectEdit()" style="width:100%; justify-content:center; margin-top:5px; display:none;">取消修改</button>
+                    </div>
+                </div>
+
+                <!-- 表單：管理公司下拉名單選項 -->
+                <div class="form-section">
+                    <h2>🏢 公司清單維護</h2>
+                    <div class="form-group" style="display:flex; gap:5px;">
+                        <input type="text" id="newCompanyName" class="form-control" placeholder="新增公司名稱">
+                        <button class="btn btn-import" onclick="addCompanyOption()" style="padding:0 12px;">+</button>
+                    </div>
+                    <div class="company-pool-tags" id="companyTagsContainer"></div>
+                </div>
+            </div>
+
+            <!-- 右側：按交稿月份分色呈現的專案列表 -->
+            <div class="content-area" id="scheduleDisplayArea">
+                <!-- 專案日程表會動態渲染於此 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化核心數據
+        let projects = [];
+        let companies = ["Uni", "Disney", "WB", "Sony"];
+
+        // 從 localStorage 載入數據
+        function loadStorageData() {
+            const storedProjects = localStorage.getItem('localization_projects');
+            const storedCompanies = localStorage.getItem('localization_companies');
+            
+            if (storedProjects) projects = JSON.parse(storedProjects);
+            if (storedCompanies) companies = JSON.parse(storedCompanies);
+            
+            renderCompanyOptions();
+            renderScheduleTimeline();
+        }
+
+        // 儲存數據至 localStorage
+        function saveStorageData() {
+            localStorage.setItem('localization_projects', JSON.stringify(projects));
+            localStorage.setItem('localization_companies', JSON.stringify(companies));
+        }
+
+        // 渲染公司下拉選單與標籤群
+        function renderCompanyOptions() {
+            const selectEl = document.getElementById('projCompany');
+            selectEl.innerHTML = companies.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+
+            const tagsContainer = document.getElementById('companyTagsContainer');
+            tagsContainer.innerHTML = companies.map(c => `
+                <span class="company-tag">
+                    ${escapeHtml(c)}
+                    <span class="remove-tag" onclick="deleteCompanyOption('${escapeHtml(c)}')">&times;</span>
+                </span>
+            `).join('');
+        }
+
+        // 新增公司選項
+        function addCompanyOption() {
+            const input = document.getElementById('newCompanyName');
+            const name = input.value.trim();
+            if (!name) return alert('請輸入公司名稱！');
+            if (companies.includes(name)) return alert('該公司名稱已存在！');
+            
+            companies.push(name);
+            input.value = '';
+            saveStorageData();
+            renderCompanyOptions();
+        }
+
+        // 刪除公司選項
+        function deleteCompanyOption(name) {
+            if (confirm(`確定要刪除「${name}」選項嗎？這不會刪除已建立的專案數據。`)) {
+                companies = companies.filter(c => c !== name);
+                saveStorageData();
+                renderCompanyOptions();
+            }
+        }
+
+        // 儲存/新增專案
+        function saveProject() {
+            const company = document.getElementById('projCompany').value;
+            const title = document.getElementById('projTitle').value.trim();
+            const releaseDate = document.getElementById('projReleaseDate').value;
+            const deadline = document.getElementById('projDeadline').value;
+            const editingId = document.getElementById('editingId').value;
+
+            if (!title || !deadline) {
+                return alert('請填寫 片名 與 交稿截稿期限！');
+            }
+
+            if (editingId) {
+                // 編輯模式
+                const index = projects.findIndex(p => p.id === editingId);
+                if (index !== -1) {
+                    projects[index] = { id: editingId, company, title, releaseDate, deadline };
+                }
+                cancelProjectEdit();
+            } else {
+                // 全新建立
+                const newProj = {
+                    id: 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+                    company, title, releaseDate, deadline
+                };
+                projects.push(newProj);
+            }
+
+            saveStorageData();
+            renderScheduleTimeline();
+            
+            // 清除輸入欄位
+            document.getElementById('projTitle').value = '';
+            document.getElementById('projReleaseDate').value = '';
+            document.getElementById('projDeadline').value = '';
+        }
+
+        // 進入編輯專案模式
+        function editProject(id) {
+            const proj = projects.find(p => p.id === id);
+            if (!proj) return;
+
+            document.getElementById('editingId').value = proj.id;
+            document.getElementById('projCompany').value = proj.company;
+            document.getElementById('projTitle').value = proj.title;
+            document.getElementById('projReleaseDate').value = proj.releaseDate || '';
+            document.getElementById('projDeadline').value = proj.deadline;
+
+            document.getElementById('formTitle').textContent = '✏️ 修改專案紀錄';
+            document.getElementById('btnSubmitProject').textContent = '確認修改';
+            document.getElementById('btnCancelEdit').style.display = 'block';
+        }
+
+        // 取消修改
+        function cancelProjectEdit() {
+            document.getElementById('editingId').value = '';
+            document.getElementById('projTitle').value = '';
+            document.getElementById('projReleaseDate').value = '';
+            document.getElementById('projDeadline').value = '';
+
+            document.getElementById('formTitle').textContent = '➕ 新增專案紀錄';
+            document.getElementById('btnSubmitProject').textContent = '儲存紀錄';
+            document.getElementById('btnCancelEdit').style.display = 'none';
+        }
+
+        // 刪除專案紀錄
+        function deleteProject(id) {
+            if (confirm('確定要刪除這筆專案排程紀錄嗎？')) {
+                projects = projects.filter(p => p.id !== id);
+                saveStorageData();
+                renderScheduleTimeline();
+            }
+        }
+
+        // 核心渲染邏輯：依交稿 Deadline 月份進行聚合分組，並套用對應專案色系
+        function renderScheduleTimeline() {
+            const displayArea = document.getElementById('scheduleDisplayArea');
+            displayArea.innerHTML = '';
+
+            if (projects.length === 0) {
+                displayArea.innerHTML = '<div class="empty-state">目前尚未登錄任何專案日程紀錄。</div>';
+                return;
+            }
+
+            // 建立月份分組聚合器
+            const grouped = {};
+
+            projects.forEach(p => {
+                // 以交稿 deadline 作為月份區分標準
+                if (!p.deadline) return;
+                const dateObj = new Date(p.deadline);
+                if (isNaN(dateObj.getTime())) return;
+
+                const year = dateObj.getFullYear();
+                const month = dateObj.getMonth() + 1; // 1-12
+                const groupKey = `${year} 年 ${month} 月`;
+
+                if (!grouped[groupKey]) {
+                    grouped[groupKey] = {
+                        year: year,
+                        month: month,
+                        items: []
+                    };
+                }
+                grouped[groupKey].items.push(p);
+            });
+
+            // 依照時間先後順序排序月份區塊
+            const sortedGroupKeys = Object.keys(grouped).sort((a, b) => {
+                const ga = grouped[a];
+                const gb = grouped[b];
+                return ga.year !== gb.year ? ga.year - gb.year : ga.month - gb.month;
+            });
+
+            sortedGroupKeys.forEach(key => {
+                const group = grouped[key];
+                // 依據月份值動態綁定 1 至 12 的專屬色彩 CSS Class
+                const monthClass = `month-m${group.month}`;
+
+                // 針對該月份內的專案項目，依照日期先後排序
+                group.items.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+
+                let rowsHtml = group.items.map(p => {
+                    // 格式化顯示上映日期 (若無則呈現空字串或待定)
+                    const displayRelease = p.releaseDate ? formatDate(p.releaseDate) : '—';
+                    const displayDeadline = formatDate(p.deadline);
+
+                    return `
+                        <tr>
+                            <td style="font-weight: bold; color: #2c3e50;">${escapeHtml(p.company)}</td>
+                            <td>${escapeHtml(p.title)}</td>
+                            <td style="color: #555;">${displayRelease}</td>
+                            <td style="font-weight: 600; color: #c0392b;">${displayDeadline}</td>
+                            <td>
+                                <div class="actions-cell">
+                                    <button class="btn btn-sm btn-edit" onclick="editProject('${p.id}')">修改</button>
+                                    <button class="btn btn-sm btn-delete" onclick="deleteProject('${p.id}')">刪除</button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+
+                const sectionHtml = `
+                    <div class="month-group ${monthClass}">
+                        <div class="month-header">📅 ${key}</div>
+                        <table class="project-table" style="width:100%; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 15%;">公司</th>
+                                    <th style="width: 40%;">片名 / 項目</th>
+                                    <th style="width: 20%;">前日期 (上映)</th>
+                                    <th style="width: 20%;">後日期 (交稿期限)</th>
+                                    <th style="width: 10%;">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${rowsHtml}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                displayArea.innerHTML += sectionHtml;
+            });
+        }
+
+        // 日期美化轉換 (將 YYYY-MM-DD 轉為簡明標籤格式，例如 16-Jul-26 或 May-04)
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            if (isNaN(date.getTime())) return dateStr;
+            
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = months[date.getMonth()];
+            const year = String(date.getFullYear()).substring(2);
+            
+            return `${day}-${month}-${year}`;
+        }
+
+        // ========== 本地檔案導入/導出功能 ==========
+        function triggerLocalImport() {
+            document.getElementById('localFileInput').click();
+        }
+
+        function handleLocalImport(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (confirm('導入外部資料將會覆蓋您現有的本地專案紀錄，確定要繼續嗎？')) {
+                        projects = parsed.projects || [];
+                        if (parsed.companies) companies = parsed.companies;
+                        saveStorageData();
+                        renderCompanyOptions();
+                        renderScheduleTimeline();
+                        alert('✅ 資料成功導入！');
+                    }
+                } catch (err) {
+                    alert('❌ 解析失敗：請確定您選擇的是正確格式的 JSON 備份檔！');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function exportLocalJson() {
+            const exportData = {
+                projects,
+                companies,
+                exportTime: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `排程交稿清單備份_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function resetAllData() {
+            if (confirm('⚠️ 警告：這將會完全清除您本地端所有的專案排程與客製化公司清單，且無法復原！確定要重置嗎？')) {
+                projects = [];
+                companies = ["Uni", "Disney", "WB", "Sony"];
+                saveStorageData();
+                renderCompanyOptions();
+                renderScheduleTimeline();
+                alert('系統已恢復初始值。');
+            }
+        }
+
+        // ========== GitHub 雲端雲端同步核心功能 ==========
+        function openGithubModal() {
+            document.getElementById('githubModal').classList.add('active');
+            const settings = getGithubSettings();
+            document.getElementById('githubToken').value = settings.token || '';
+            document.getElementById('githubRepo').value = settings.repo || '';
+            document.getElementById('githubPath').value = settings.path || 'data/project-deadline.json';
+            updateSyncStatus('', '');
+        }
+
+        function closeGithubModal() {
+            document.getElementById('githubModal').classList.remove('active');
+        }
+
+        function getGithubSettings() {
+            const saved = localStorage.getItem('localization_github_settings');
+            return saved ? JSON.parse(saved) : {};
+        }
+
+        function saveGithubSettings() {
+            const token = document.getElementById('githubToken').value.trim();
+            const repo = document.getElementById('githubRepo').value.trim();
+            const path = document.getElementById('githubPath').value.trim();
+
+            if (!token || !repo || !path) {
+                updateSyncStatus('請完整填寫所有設定欄位！', 'error');
+                return;
+            }
+
+            localStorage.setItem('localization_github_settings', JSON.stringify({ token, repo, path }));
+            updateSyncStatus('⚙️ 設定儲存成功！', 'success');
+            setTimeout(closeGithubModal, 1000);
+        }
+
+        function updateSyncStatus(msg, type) {
+            const el = document.getElementById('syncStatus');
+            el.textContent = msg;
+            el.className = 'sync-status';
+            if (type) el.classList.add(type);
+        }
+
+        // 雲端同步：上傳本地 JSON
+        async function uploadToGithub() {
+            const settings = getGithubSettings();
+            if (!settings.token || !settings.repo || !settings.path) {
+                alert('請先填寫並儲存您的 GitHub 帳號同步設定！');
+                return openGithubModal();
+            }
+
+            try {
+                const syncPayload = { projects, companies, lastUpdated: new Date().toISOString() };
+                const base64Content = btoa(unescape(encodeURIComponent(JSON.stringify(syncPayload, null, 2))));
+                
+                let sha = null;
+                try {
+                    const checkRes = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${settings.path}`, {
+                        headers: { 'Authorization': `token ${settings.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                    });
+                    if (checkRes.ok) {
+                        const fileData = await checkRes.json();
+                        sha = fileData.sha;
+                    }
+                } catch (e) {}
+
+                const commitBody = {
+                    message: `更新專案交稿排程數據 - ${new Date().toLocaleString('zh-TW')}`,
+                    content: base64Content
+                };
+                if (sha) commitBody.sha = sha;
+
+                const response = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${settings.path}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${settings.token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(commitBody)
+                });
+
+                if (response.ok) {
+                    alert('✅ 數據已成功同步上傳至您的 GitHub 儲存庫！');
+                } else {
+                    const errJson = await response.json();
+                    throw new Error(errJson.message || '上傳遭遇未預期錯誤');
+                }
+            } catch (err) {
+                alert('❌ 雲端同步失敗：' + err.message);
+            }
+        }
+
+        // 雲端同步：從 GitHub 下載
+        async function downloadFromGithub() {
+            const settings = getGithubSettings();
+            if (!settings.token || !settings.repo || !settings.path) {
+                alert('請先填寫並儲存您的 GitHub 帳號同步設定！');
+                return openGithubModal();
+            }
+
+            try {
+                const response = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${settings.path}`, {
+                    headers: { 'Authorization': `token ${settings.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                });
+
+                if (!response.ok) {
+                    if (response.status === 404) throw new Error('雲端路徑上尚未找到任何專案存檔，請先執行上傳。');
+                    throw new Error('無法從遠端正常擷取資料');
+                }
+
+                const fileData = await response.json();
+                const jsonContent = decodeURIComponent(escape(atob(fileData.content)));
+                const parsed = JSON.parse(jsonContent);
+
+                if (confirm('這將會用雲端覆蓋您本機當前的所有專案日程，確定要覆蓋下載嗎？')) {
+                    projects = parsed.projects || [];
+                    if (parsed.companies) companies = parsed.companies;
+                    saveStorageData();
+                    renderCompanyOptions();
+                    renderScheduleTimeline();
+                    alert('✅ 成功從 GitHub 下載並覆蓋更新！');
+                }
+            } catch (err) {
+                alert('❌ 下載雲端備份失敗：' + err.message);
+            }
+        }
+
+        // 工具函式：防止 HTML 標籤注入
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // 頁面初始化
+        loadStorageData();
+    </script>
+</body>
+</html>
