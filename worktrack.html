@@ -442,7 +442,7 @@
             font-weight: bold;
         }
 
-        /* ========== 僅新增：GitHub 功能相關額外樣式 ========== */
+        /* ========== GitHub 功能相關額外樣式 ========== */
         .btn-upload { background-color: #6f42c1; color: white; }
         .btn-upload:hover { background-color: #5a32a3; }
         .btn-download { background-color: #fd7e14; color: white; }
@@ -626,7 +626,6 @@
 </div>
 
 <script>
-    // 以下為完全未改動的原版管理系統核心邏輯
     let optionsConfig = {
         company: ["Uni", "Disney", "Sony", "WB"],
         platform: ["Pixel", "Deluxe", "META", "Eikon Meta"],
@@ -885,11 +884,16 @@
         }
     }
 
+    // 核心優化：此函數已修改明細渲染部分，完全依照公司歸類為同一行
     function updateCalculations() {
-        let waitingList = [], noInvList = [], ongoingList = [];
         let waitingTotal = 0, noInvTotal = 0, ongoingTotal = 0;
         let estMonthStats = {};
         
+        // 用於將明細按公司進行歸類打包的暫存物件
+        let companyWaitingGroup = {}; // { Uni: [ "片名 (6月收 / $7,500)", ... ] }
+        let companyNoInvGroup = {};   // { Uni: [ "片名 ($7,500)", ... ] }
+        let companyOngoingGroup = {}; // { Uni: [ "片名 ($10,500)", ... ] }
+
         let companyAnnualStats = {};
         optionsConfig.company.forEach(c => {
             companyAnnualStats[c] = { count: 0, totalIncome: 0 };
@@ -905,11 +909,11 @@
                 const amt = parseFloat(row.income) || 0;
                 const titleText = row.title || "(未填寫)";
                 const payoutMonth = row.estPayoutMonth || "未指定月份";
-                const comp = row.company;
+                const comp = row.company || "未指定公司";
                 const plat = row.platform;
                 const status = row.status;
                 
-                if (comp) {
+                if (row.company) {
                     if (!companyAnnualStats[comp]) {
                         companyAnnualStats[comp] = { count: 0, totalIncome: 0 };
                     }
@@ -919,9 +923,12 @@
                 
                 if (status === "等收") {
                     waitingTotal += amt;
-                    waitingList.push(`<li>【${comp}】[${plat}] ${titleText} <span class="payout-badge">⏱️ 預計 ${payoutMonth} 收</span> : $${amt.toLocaleString()}</li>`);
                     if (!estMonthStats[payoutMonth]) estMonthStats[payoutMonth] = 0;
                     estMonthStats[payoutMonth] += amt;
+
+                    // 處理等收群組歸類字串
+                    if (!companyWaitingGroup[comp]) companyWaitingGroup[comp] = [];
+                    companyWaitingGroup[comp].push(`${titleText} (${payoutMonth}收 / $${amt.toLocaleString()})`);
 
                     if (comp === "WB" || comp === "Sony") {
                         if (plat === "Pixel") {
@@ -944,15 +951,23 @@
 
                 } else if (status === "未出invoice") {
                     noInvTotal += amt;
-                    let checkText = (isCheckInvoiceTriggered(row) && row.checkInvoiceMonth) ? ` <span class="check-badge">📝 check ${row.checkInvoiceMonth}單</span>` : '';
-                    noInvList.push(`<li>【${comp}】[${plat}] ${titleText}${checkText} : $${amt.toLocaleString()}</li>`);
+                    
+                    // 處理未出 invoice 群組歸類字串
+                    if (!companyNoInvGroup[comp]) companyNoInvGroup[comp] = [];
+                    let checkBadgeText = (isCheckInvoiceTriggered(row) && row.checkInvoiceMonth) ? ` (📝 check ${row.checkInvoiceMonth}單)` : '';
+                    companyNoInvGroup[comp].push(`${titleText}${checkBadgeText} ($${amt.toLocaleString()})`);
+
                 } else if (status === "進行中") {
                     ongoingTotal += amt;
-                    ongoingList.push(`<li>【${comp}】 ${titleText} : $${amt.toLocaleString()}</li>`);
+                    
+                    // 處理進行中群組歸類字串
+                    if (!companyOngoingGroup[comp]) companyOngoingGroup[comp] = [];
+                    companyOngoingGroup[comp].push(`${titleText} ($${amt.toLocaleString()})`);
                 }
             });
         });
 
+        // 1. 渲染：全年各公司年度業績總計
         const companyGridArea = document.getElementById('company-annual-grid-area');
         companyGridArea.innerHTML = '';
         Object.keys(companyAnnualStats).forEach(cName => {
@@ -967,6 +982,7 @@
             companyGridArea.appendChild(card);
         });
 
+        // 2. 渲染：預計收錢月份金額統計
         const monthGridArea = document.getElementById('monthly-est-grid-area');
         monthGridArea.innerHTML = '';
         const sortedMonths = Object.keys(estMonthStats).sort();
@@ -984,6 +1000,7 @@
             });
         }
 
+        // 3. 渲染：平台結算規律與【等收】帳目摘要
         const formatPlatformLine = (label, list) => {
             return `<div>${label}： ${list.length ? '<strong>' + list.join(' / ') + '</strong>' : '無等收項目'}</div>`;
         };
@@ -999,15 +1016,29 @@
         `;
         document.getElementById('platform-rules-area').innerHTML = rulesHTML;
 
+        // 4. 新優化部分：生成按公司合併串接後的列表 HTML
+        let waitingListHTML = [];
+        Object.keys(companyWaitingGroup).forEach(compKey => {
+            waitingListHTML.push(`<li>【${compKey}】 <strong>${companyWaitingGroup[compKey].join(' / ')}</strong></li>`);
+        });
         document.getElementById('dash-waiting-total').innerText = `$${waitingTotal.toLocaleString()}`;
-        document.getElementById('dash-waiting-list').innerHTML = waitingList.length ? waitingList.join('') : '<li>無符合條件之項目</li>';
+        document.getElementById('dash-waiting-list').innerHTML = waitingListHTML.length ? waitingListHTML.join('') : '<li>無符合條件之項目</li>';
 
+        let noInvListHTML = [];
+        Object.keys(companyNoInvGroup).forEach(compKey => {
+            noInvListHTML.push(`<li>【${compKey}】 <strong>${companyNoInvGroup[compKey].join(' / ')}</strong></li>`);
+        });
         document.getElementById('dash-no-inv-total').innerText = `$${noInvTotal.toLocaleString()}`;
-        document.getElementById('dash-no-inv-list').innerHTML = noInvList.length ? noInvList.join('') : '<li>無符合條件之項目</li>';
+        document.getElementById('dash-no-inv-list').innerHTML = noInvListHTML.length ? noInvListHTML.join('') : '<li>無符合條件之項目</li>';
 
+        let ongoingListHTML = [];
+        Object.keys(companyOngoingGroup).forEach(compKey => {
+            ongoingListHTML.push(`<li>【${compKey}】 <strong>${companyOngoingGroup[compKey].join(' / ')}</strong></li>`);
+        });
         document.getElementById('dash-ongoing-total').innerText = `$${ongoingTotal.toLocaleString()}`;
-        document.getElementById('dash-ongoing-list').innerHTML = ongoingList.length ? ongoingList.join('') : '<li>無符合條件之項目</li>';
+        document.getElementById('dash-ongoing-list').innerHTML = ongoingListHTML.length ? ongoingListHTML.join('') : '<li>無符合條件之項目</li>';
 
+        // 5. 總應收額
         const grandTotal = waitingTotal + noInvTotal + ongoingTotal;
         document.getElementById('dash-grand-receivable').innerText = `💰 總應收額 (包含等收、未出invoice、進行中)：$${grandTotal.toLocaleString()}`;
     }
@@ -1069,7 +1100,7 @@
         }
     }
 
-    // ========== 僅新增：來自 calorie_tracker.html 整合移植的 GitHub 控制與同步邏輯 ==========
+    // ========== GitHub 控制與同步邏輯 ==========
     function openGithubModal() {
         document.getElementById('githubModal').classList.add('active');
         const settings = getGithubSettings();
@@ -1118,7 +1149,6 @@
 
         try {
             const yearVal = document.getElementById('fiscal-year-input').value;
-            // 包裝完整的工作追蹤系統資料結構
             const data = { 
                 fiscalYear: yearVal, 
                 optionsConfig: optionsConfig, 
@@ -1191,7 +1221,6 @@
         } catch (error) { alert('❌ 下載雲端失敗：' + error.message); }
     }
 
-    // 點擊彈窗外部邊緣自動關閉彈窗
     document.getElementById('githubModal').addEventListener('click', function(e) { 
         if (e.target === this) closeGithubModal(); 
     });
