@@ -1,0 +1,151 @@
+{
+  "fiscalYear": "2026 - 2027",
+  "optionsConfig": {
+    "company": [
+      "Uni",
+      "Disney",
+      "Sony",
+      "WB"
+    ],
+    "platform": [
+      "Pixel",
+      "Deluxe",
+      "META",
+      "Eikon Meta",
+      "DOC"
+    ],
+    "status": [
+      "進行中",
+      "未出invoice",
+      "等收",
+      "已收"
+    ]
+  },
+  "workData": {
+    "10": [],
+    "11": [],
+    "12": [],
+    "04": [
+      {
+        "company": "Disney",
+        "platform": "Pixel",
+        "title": "Devil Wears Prada 2",
+        "income": 8500,
+        "status": "等收",
+        "estPayoutMonth": "6月",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Sony",
+        "platform": "Deluxe",
+        "title": "He-Man",
+        "income": 8500,
+        "status": "等收",
+        "estPayoutMonth": "6月",
+        "checkInvoiceMonth": ""
+      }
+    ],
+    "05": [
+      {
+        "company": "Uni",
+        "platform": "Deluxe",
+        "title": "Disclosure Day",
+        "income": 15000,
+        "status": "等收",
+        "estPayoutMonth": "6月",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "META",
+        "title": "Super Girl",
+        "income": 7500,
+        "status": "等收",
+        "estPayoutMonth": "6月",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Disney",
+        "platform": "Pixel",
+        "title": "Toy Story 5",
+        "income": 8500,
+        "status": "等收",
+        "estPayoutMonth": "8月",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Sony",
+        "platform": "Deluxe",
+        "title": "Evil Dead Burn",
+        "income": 8500,
+        "status": "等收",
+        "estPayoutMonth": "8月",
+        "checkInvoiceMonth": "6月"
+      },
+      {
+        "company": "Disney",
+        "platform": "DOC",
+        "title": "Mando Clips",
+        "income": 1250,
+        "status": "等收",
+        "estPayoutMonth": "7月",
+        "checkInvoiceMonth": ""
+      }
+    ],
+    "06": [
+      {
+        "company": "Disney",
+        "platform": "Pixel",
+        "title": "Moana",
+        "income": 8500,
+        "status": "等收",
+        "estPayoutMonth": "8月",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Uni",
+        "platform": "Deluxe",
+        "title": "Odyssey",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Uni",
+        "platform": "Pixel",
+        "title": "Minions 3",
+        "income": 10500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "Pixel",
+        "title": "Oak Street",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "Pixel",
+        "title": "clips",
+        "income": 2352,
+        "status": "等收",
+        "estPayoutMonth": "6月",
+        "checkInvoiceMonth": ""
+      }
+    ],
+    "07": [],
+    "08": [],
+    "09": [],
+    "01_next": [],
+    "02_next": [],
+    "03_next": [],
+    "04_next": []
+  },
+  "lastUpdated": "2026-06-08T06:27:09.263Z"
+}
