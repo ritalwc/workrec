@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "id": "id_1780908030456_wngg",
+      "company": "Uni",
+      "title": "Minons",
+      "releaseDate": "2026-07-01",
+      "deadline": "2026-06-11"
+    },
+    {
+      "id": "id_1780908058788_i25v",
+      "company": "WB",
+      "title": "The End of Oak Street",
+      "releaseDate": "2026-08-13",
+      "deadline": "2026-06-17"
+    },
+    {
+      "id": "id_1780908082600_pka0",
+      "company": "Uni",
+      "title": "Odyssey",
+      "releaseDate": "2026-07-16",
+      "deadline": "2026-06-08"
+    },
+    {
+      "id": "id_1780908134451_cthd",
+      "company": "Uni",
+      "title": "One Night Only",
+      "releaseDate": "2026-08-27",
+      "deadline": "2026-07-10"
+    },
+    {
+      "id": "id_1780908157920_9e8s",
+      "company": "WB",
+      "title": "Practical Magic 2",
+      "releaseDate": "2026-09-10",
+      "deadline": "2026-07-24"
+    },
+    {
+      "id": "id_1780908184498_kvfc",
+      "company": "Uni",
+      "title": "Forgotten Island OV",
+      "releaseDate": "2026-09-24",
+      "deadline": "2026-08-17"
+    },
+    {
+      "id": "id_1780908211900_3joo",
+      "company": "Uni",
+      "title": "Forgotten Island DV",
+      "releaseDate": "2026-09-24",
+      "deadline": "2026-08-26"
+    },
+    {
+      "id": "id_1780908247494_nxgd",
+      "company": "Disney",
+      "title": "Dog Stars",
+      "releaseDate": "",
+      "deadline": "2026-07-06"
+    }
+  ],
+  "companies": [
+    "Uni",
+    "Disney",
+    "WB",
+    "Sony"
+  ],
+  "lastUpdated": "2026-06-08T08:44:28.509Z"
+}
