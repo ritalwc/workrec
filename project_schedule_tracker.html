@@ -15,22 +15,22 @@
             font-family: 'Segoe UI', Arial, 'Microsoft JhengHei', sans-serif;
             background: #f0f2f5;
             color: #333;
-            padding: 20px;
+            padding: 10px; /* 縮減全域外圍留白 */
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px; /* 微調圓角讓結構更緊湊 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             overflow: hidden;
         }
 
         .header {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            padding: 25px 30px;
+            padding: 14px 20px; /* 大幅縮減標題列的上下留白 (原 25px 30px) */
             color: white;
             display: flex;
             justify-content: space-between;
@@ -40,7 +40,7 @@
         }
 
         .header h1 {
-            font-size: 1.8em;
+            font-size: 1.5em; /* 稍微縮小字體讓空間更緊湊 */
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -48,20 +48,20 @@
         }
 
         .controls {
-            padding: 15px 30px;
+            padding: 10px 20px; /* 縮減按鈕控制列的上下留白 (原 15px 30px) */
             background: #f8f9fa;
             border-bottom: 1px solid #e9ecef;
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 10px 18px;
+            padding: 8px 14px; /* 緊湊型按鈕內襯留白 */
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 0.9em;
+            font-size: 0.88em;
             font-weight: bold;
             transition: all 0.2s ease;
             color: white;
@@ -87,8 +87,8 @@
 
         .main-layout {
             display: grid;
-            grid-template-columns: 320px 1fr;
-            min-height: 600px;
+            grid-template-columns: 310px 1fr;
+            min-height: auto; /* 移除原本 600px 的硬性高度限制，避免強制留白 */
         }
 
         @media (max-width: 992px) {
@@ -96,50 +96,50 @@
         }
 
         .sidebar {
-            padding: 25px;
+            padding: 15px; /* 縮減左側邊欄內襯 (原 25px) */
             background: #fcfcfc;
             border-right: 1px solid #e9ecef;
         }
 
         .content-area {
-            padding: 25px;
+            padding: 15px; /* 縮減右側看板區內襯 (原 25px) */
             overflow-x: auto;
         }
 
         .form-section {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 14px; /* 縮減表單區塊內部空間 (原 20px) */
+            border-radius: 6px;
             border: 1px solid #e9ecef;
-            margin-bottom: 20px;
+            margin-bottom: 12px; /* 縮減表單之間的間距 */
         }
 
         .form-section h2 {
-            font-size: 1.1em;
-            margin-bottom: 15px;
+            font-size: 1em;
+            margin-bottom: 10px; /* 縮減小標題下方的空白 */
             color: #2c3e50;
             border-left: 4px solid #3498db;
             padding-left: 8px;
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 10px; /* 縮減輸入框之間的間距 (原 12px) */
         }
 
         .form-group label {
             display: block;
-            font-size: 0.85em;
+            font-size: 0.82em;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: #666;
         }
 
         .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 8px 10px; /* 縮減輸入框內襯，讓它更扁更緊湊 */
             border: 1px solid #cccccc;
-            border-radius: 6px;
-            font-size: 0.9em;
+            border-radius: 4px;
+            font-size: 0.88em;
             outline: none;
             transition: border-color 0.2s;
         }
@@ -151,18 +151,18 @@
         .company-pool-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 10px;
+            gap: 5px;
+            margin-top: 8px;
         }
 
         .company-tag {
             background: #eaeded;
-            padding: 4px 8px;
+            padding: 3px 6px;
             border-radius: 4px;
-            font-size: 0.8em;
+            font-size: 0.78em;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
 
         .company-tag .remove-tag {
@@ -173,33 +173,33 @@
 
         /* 月份顏色邏輯交替表 */
         .month-group {
-            margin-bottom: 30px;
-            border-radius: 8px;
+            margin-bottom: 15px; /* 大幅縮減每個月份區塊之間的上下間距 (原 30px) */
+            border-radius: 6px;
             overflow: hidden;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.01);
         }
 
         .month-header {
-            padding: 12px 20px;
+            padding: 8px 15px; /* 縮減月份標題列的上下留白 (原 12px 20px) */
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1em;
             color: white;
         }
 
         /* 根據月份循環套用不同色系 */
-        .month-m1 .month-header { background-color: #3b82f6; } /* 藍色 */
-        .month-m2 .month-header { background-color: #10b981; } /* 綠色 */
-        .month-m3 .month-header { background-color: #f59e0b; } /* 橘黃 */
-        .month-m4 .month-header { background-color: #ec4899; } /* 粉紅 */
-        .month-m5 .month-header { background-color: #8b5cf6; } /* 紫色 */
-        .month-m6 .month-header { background-color: #06b6d4; } /* 青色 */
-        .month-m7 .month-header { background-color: #f43f5e; } /* 玫瑰紅 */
-        .month-m8 .month-header { background-color: #a855f7; } /* 亮紫 */
-        .month-m9 .month-header { background-color: #14b8a6; } /* 翡翠綠 */
-        .month-m10 .month-header { background-color: #f97316; } /* 橙色 */
-        .month-m11 .month-header { background-color: #6366f1; } /* 靛藍 */
-        .month-m12 .month-header { background-color: #64748b; } /* 藍灰 */
+        .month-m1 .month-header { background-color: #3b82f6; }
+        .month-m2 .month-header { background-color: #10b981; }
+        .month-m3 .month-header { background-color: #f59e0b; }
+        .month-m4 .month-header { background-color: #ec4899; }
+        .month-m5 .month-header { background-color: #8b5cf6; }
+        .month-m6 .month-header { background-color: #06b6d4; }
+        .month-m7 .month-header { background-color: #f43f5e; }
+        .month-m8 .month-header { background-color: #a855f7; }
+        .month-m9 .month-header { background-color: #14b8a6; }
+        .month-m10 .month-header { background-color: #f97316; }
+        .month-m11 .month-header { background-color: #6366f1; }
+        .month-m12 .month-header { background-color: #64748b; }
 
         .month-m1 { border-color: #3b82f6; background-color: #f0f6ff; }
         .month-m2 { border-color: #10b981; background-color: #f0fdf4; }
@@ -214,26 +214,26 @@
         .month-m11 { border-color: #6366f1; background-color: #eef2ff; }
         .month-m12 { border-color: #64748b; background-color: #f8fafc; }
 
-        project-table {
+        .project-table {
             width: 100%;
             border-collapse: collapse;
             background: white;
         }
 
         .project-table th {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0,0,0,0.03);
             color: #333;
             text-align: left;
-            padding: 12px 15px;
-            font-size: 0.9em;
+            padding: 8px 12px; /* 縮減表格標頭的內襯留白 (原 12px 15px) */
+            font-size: 0.85em;
             font-weight: 600;
-            border-bottom: 2px solid rgba(0,0,0,0.08);
+            border-bottom: 2px solid rgba(0,0,0,0.06);
         }
 
         .project-table td {
-            padding: 12px 15px;
-            font-size: 0.9em;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 8px 12px; /* 縮減表格資料列的內襯留白 (原 12px 15px) 讓畫面塞更多行 */
+            font-size: 0.85em;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
             color: #444;
             background: white;
         }
@@ -244,13 +244,13 @@
 
         .actions-cell {
             display: flex;
-            gap: 6px;
+            gap: 4px;
         }
 
         .btn-sm {
-            padding: 5px 10px;
-            font-size: 0.8em;
-            border-radius: 4px;
+            padding: 3px 6px; /* 縮小表格內按鈕 */
+            font-size: 0.78em;
+            border-radius: 3px;
         }
 
         .btn-edit { background: #f1c40f; color: #333; }
@@ -271,27 +271,28 @@
         .modal-overlay.active { display: flex; }
 
         .modal-content {
-            background: white; padding: 25px; border-radius: 10px;
+            background: white; padding: 20px; border-radius: 8px;
             max-width: 500px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .modal-header {
             display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;
+            margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 8px;
         }
 
         .modal-close {
-            background: none; border: none; font-size: 1.5em; cursor: pointer; color: #aaa;
+            background: none; border: none; font-size: 1.4em; cursor: pointer; color: #aaa;
         }
 
         .sync-status {
-            padding: 10px; border-radius: 6px; margin-bottom: 15px; display: none; font-size: 0.9em;
+            padding: 8px; border-radius: 4px; margin-bottom: 12px; display: none; font-size: 0.85em;
         }
         .sync-status.success { display: block; background: #d4edda; color: #155724; }
         .sync-status.error { display: block; background: #f8d7da; color: #721c24; }
 
         .empty-state {
-            text-align: center; padding: 40px; color: #999; font-style: italic; background: white;
+            text-align: center; padding: 30px; color: #999; font-style: italic; background: white;
+            font-size: 0.88em;
         }
     </style>
 </head>
@@ -318,7 +319,7 @@
                     <label>JSON 檔案儲存路徑</label>
                     <input type="text" id="githubPath" class="form-control" value="data/project-deadline.json">
                 </div>
-                <div style="text-align: right; margin-top: 20px;">
+                <div style="text-align: right; margin-top: 15px;">
                     <button class="btn btn-github-settings" style="background:#95a5a6;" onclick="closeGithubModal()">取消</button>
                     <button class="btn btn-import" onclick="saveGithubSettings()">儲存設定</button>
                 </div>
@@ -372,7 +373,7 @@
                         <input type="date" id="projDeadline" class="form-control">
                     </div>
                     
-                    <div style="margin-top: 15px;">
+                    <div style="margin-top: 10px;">
                         <button class="btn btn-primary" id="btnSubmitProject" onclick="saveProject()" style="width:100%; justify-content:center;">儲存紀錄</button>
                         <button class="btn btn-github-settings" id="btnCancelEdit" onclick="cancelProjectEdit()" style="width:100%; justify-content:center; margin-top:5px; display:none;">取消修改</button>
                     </div>
@@ -383,7 +384,7 @@
                     <h2>🏢 公司清單維護</h2>
                     <div class="form-group" style="display:flex; gap:5px;">
                         <input type="text" id="newCompanyName" class="form-control" placeholder="新增公司名稱">
-                        <button class="btn btn-import" onclick="addCompanyOption()" style="padding:0 12px;">+</button>
+                        <button class="btn btn-import" onclick="addCompanyOption()" style="padding:0 10px;">+</button>
                     </div>
                     <div class="company-pool-tags" id="companyTagsContainer"></div>
                 </div>
@@ -397,11 +398,9 @@
     </div>
 
     <script>
-        // 初始化核心數據
         let projects = [];
         let companies = ["Uni", "Disney", "WB", "Sony"];
 
-        // 從 localStorage 載入數據
         function loadStorageData() {
             const storedProjects = localStorage.getItem('localization_projects');
             const storedCompanies = localStorage.getItem('localization_companies');
@@ -413,13 +412,11 @@
             renderScheduleTimeline();
         }
 
-        // 儲存數據至 localStorage
         function saveStorageData() {
             localStorage.setItem('localization_projects', JSON.stringify(projects));
             localStorage.setItem('localization_companies', JSON.stringify(companies));
         }
 
-        // 渲染公司下拉選單與標籤群
         function renderCompanyOptions() {
             const selectEl = document.getElementById('projCompany');
             selectEl.innerHTML = companies.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
@@ -433,7 +430,6 @@
             `).join('');
         }
 
-        // 新增公司選項
         function addCompanyOption() {
             const input = document.getElementById('newCompanyName');
             const name = input.value.trim();
@@ -446,7 +442,6 @@
             renderCompanyOptions();
         }
 
-        // 刪除公司選項
         function deleteCompanyOption(name) {
             if (confirm(`確定要刪除「${name}」選項嗎？這不會刪除已建立的專案數據。`)) {
                 companies = companies.filter(c => c !== name);
@@ -455,7 +450,6 @@
             }
         }
 
-        // 儲存/新增專案
         function saveProject() {
             const company = document.getElementById('projCompany').value;
             const title = document.getElementById('projTitle').value.trim();
@@ -468,14 +462,12 @@
             }
 
             if (editingId) {
-                // 編輯模式
                 const index = projects.findIndex(p => p.id === editingId);
                 if (index !== -1) {
                     projects[index] = { id: editingId, company, title, releaseDate, deadline };
                 }
                 cancelProjectEdit();
             } else {
-                // 全新建立
                 const newProj = {
                     id: 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
                     company, title, releaseDate, deadline
@@ -486,13 +478,11 @@
             saveStorageData();
             renderScheduleTimeline();
             
-            // 清除輸入欄位
             document.getElementById('projTitle').value = '';
             document.getElementById('projReleaseDate').value = '';
             document.getElementById('projDeadline').value = '';
         }
 
-        // 進入編輯專案模式
         function editProject(id) {
             const proj = projects.find(p => p.id === id);
             if (!proj) return;
@@ -508,7 +498,6 @@
             document.getElementById('btnCancelEdit').style.display = 'block';
         }
 
-        // 取消修改
         function cancelProjectEdit() {
             document.getElementById('editingId').value = '';
             document.getElementById('projTitle').value = '';
@@ -520,7 +509,6 @@
             document.getElementById('btnCancelEdit').style.display = 'none';
         }
 
-        // 刪除專案紀錄
         function deleteProject(id) {
             if (confirm('確定要刪除這筆專案排程紀錄嗎？')) {
                 projects = projects.filter(p => p.id !== id);
@@ -529,7 +517,6 @@
             }
         }
 
-        // 核心渲染邏輯：依交稿 Deadline 月份進行聚合分組，並套用對應專案色系
         function renderScheduleTimeline() {
             const displayArea = document.getElementById('scheduleDisplayArea');
             displayArea.innerHTML = '';
@@ -539,30 +526,23 @@
                 return;
             }
 
-            // 建立月份分組聚合器
             const grouped = {};
 
             projects.forEach(p => {
-                // 以交稿 deadline 作為月份區分標準
                 if (!p.deadline) return;
                 const dateObj = new Date(p.deadline);
                 if (isNaN(dateObj.getTime())) return;
 
                 const year = dateObj.getFullYear();
-                const month = dateObj.getMonth() + 1; // 1-12
+                const month = dateObj.getMonth() + 1;
                 const groupKey = `${year} 年 ${month} 月`;
 
                 if (!grouped[groupKey]) {
-                    grouped[groupKey] = {
-                        year: year,
-                        month: month,
-                        items: []
-                    };
+                    grouped[groupKey] = { year: year, month: month, items: [] };
                 }
                 grouped[groupKey].items.push(p);
             });
 
-            // 依照時間先後順序排序月份區塊
             const sortedGroupKeys = Object.keys(grouped).sort((a, b) => {
                 const ga = grouped[a];
                 const gb = grouped[b];
@@ -571,14 +551,11 @@
 
             sortedGroupKeys.forEach(key => {
                 const group = grouped[key];
-                // 依據月份值動態綁定 1 至 12 的專屬色彩 CSS Class
                 const monthClass = `month-m${group.month}`;
 
-                // 針對該月份內的專案項目，依照日期先後排序
                 group.items.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
 
                 let rowsHtml = group.items.map(p => {
-                    // 格式化顯示上映日期 (若無則呈現空字串或待定)
                     const displayRelease = p.releaseDate ? formatDate(p.releaseDate) : '—';
                     const displayDeadline = formatDate(p.deadline);
 
@@ -601,13 +578,13 @@
                 const sectionHtml = `
                     <div class="month-group ${monthClass}">
                         <div class="month-header">📅 ${key}</div>
-                        <table class="project-table" style="width:100%; border-collapse: collapse;">
+                        <table class="project-table">
                             <thead>
                                 <tr>
                                     <th style="width: 15%;">公司</th>
-                                    <th style="width: 40%;">片名 / 項目</th>
-                                    <th style="width: 20%;">前日期 (上映)</th>
-                                    <th style="width: 20%;">後日期 (交稿期限)</th>
+                                    <th style="width: 45%;">片名 / 項目</th>
+                                    <th style="width: 15%;">前日期 (上映)</th>
+                                    <th style="width: 15%;">後日期 (交稿期限)</th>
                                     <th style="width: 10%;">操作</th>
                                 </tr>
                             </thead>
@@ -621,7 +598,6 @@
             });
         }
 
-        // 日期美化轉換 (將 YYYY-MM-DD 轉為簡明標籤格式，例如 16-Jul-26 或 May-04)
         function formatDate(dateStr) {
             if (!dateStr) return '';
             const date = new Date(dateStr);
@@ -635,7 +611,6 @@
             return `${day}-${month}-${year}`;
         }
 
-        // ========== 本地檔案導入/導出功能 ==========
         function triggerLocalImport() {
             document.getElementById('localFileInput').click();
         }
@@ -665,11 +640,7 @@
         }
 
         function exportLocalJson() {
-            const exportData = {
-                projects,
-                companies,
-                exportTime: new Date().toISOString()
-            };
+            const exportData = { projects, companies, exportTime: new Date().toISOString() };
             const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -690,7 +661,6 @@
             }
         }
 
-        // ========== GitHub 雲端雲端同步核心功能 ==========
         function openGithubModal() {
             document.getElementById('githubModal').classList.add('active');
             const settings = getGithubSettings();
@@ -731,7 +701,6 @@
             if (type) el.classList.add(type);
         }
 
-        // 雲端同步：上傳本地 JSON
         async function uploadToGithub() {
             const settings = getGithubSettings();
             if (!settings.token || !settings.repo || !settings.path) {
@@ -781,7 +750,6 @@
             }
         }
 
-        // 雲端同步：從 GitHub 下載
         async function downloadFromGithub() {
             const settings = getGithubSettings();
             if (!settings.token || !settings.repo || !settings.path) {
@@ -816,7 +784,6 @@
             }
         }
 
-        // 工具函式：防止 HTML 標籤注入
         function escapeHtml(text) {
             if (!text) return '';
             const div = document.createElement('div');
@@ -824,7 +791,6 @@
             return div.innerHTML;
         }
 
-        // 頁面初始化
         loadStorageData();
     </script>
 </body>
