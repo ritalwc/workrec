@@ -139,7 +139,17 @@
         "checkInvoiceMonth": ""
       }
     ],
-    "07": [],
+    "07": [
+      {
+        "company": "Disney",
+        "platform": "Pixel",
+        "title": "Dog Stars",
+        "income": 8500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      }
+    ],
     "08": [],
     "09": [],
     "01_next": [],
@@ -147,5 +157,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-08T06:27:09.263Z"
+  "lastUpdated": "2026-06-08T08:55:44.091Z"
 }
