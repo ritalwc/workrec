@@ -77,7 +77,7 @@
         "company": "Sony",
         "platform": "Deluxe",
         "title": "Evil Dead Burn (Sony Local)",
-        "income": 8500,
+        "income": 8000,
         "status": "等收",
         "estPayoutMonth": "7月",
         "checkInvoiceMonth": "6月"
@@ -157,5 +157,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-10T03:28:26.085Z"
+  "lastUpdated": "2026-06-10T03:28:59.369Z"
 }
