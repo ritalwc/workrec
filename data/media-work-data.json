@@ -107,7 +107,7 @@
         "platform": "Deluxe",
         "title": "Odyssey",
         "income": 7500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       },
@@ -148,6 +148,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Sony",
+        "platform": "Pixel",
+        "title": "KLARA AND THE SUN",
+        "income": 8000,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "08": [],
@@ -157,5 +166,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-10T23:57:28.936Z"
+  "lastUpdated": "2026-06-11T13:30:38.539Z"
 }
