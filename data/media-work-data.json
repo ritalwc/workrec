@@ -60,7 +60,7 @@
         "platform": "META",
         "title": "Super Girl",
         "income": 7500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "6月",
         "checkInvoiceMonth": ""
       },
@@ -166,5 +166,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-11T13:30:38.539Z"
+  "lastUpdated": "2026-06-13T00:40:19.576Z"
 }
