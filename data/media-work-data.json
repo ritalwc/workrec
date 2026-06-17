@@ -5,7 +5,8 @@
       "Uni",
       "Disney",
       "Sony",
-      "WB"
+      "WB",
+      "AMAZON"
     ],
     "platform": [
       "Pixel",
@@ -125,8 +126,8 @@
         "platform": "Pixel",
         "title": "Oak Street",
         "income": 7500,
-        "status": "進行中",
-        "estPayoutMonth": "",
+        "status": "等收",
+        "estPayoutMonth": "7月",
         "checkInvoiceMonth": ""
       },
       {
@@ -166,5 +167,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-13T00:40:19.576Z"
+  "lastUpdated": "2026-06-17T02:46:26.544Z"
 }
