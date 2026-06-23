@@ -169,12 +169,22 @@
         "checkInvoiceMonth": ""
       }
     ],
-    "08": [],
+    "08": [
+      {
+        "company": "WB",
+        "platform": "META",
+        "title": "Cat in The Hat",
+        "income": 105000,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      }
+    ],
     "09": [],
     "01_next": [],
     "02_next": [],
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-22T08:02:54.712Z"
+  "lastUpdated": "2026-06-23T12:21:09.581Z"
 }
