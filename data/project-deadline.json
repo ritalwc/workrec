@@ -55,6 +55,20 @@
       "title": "Dog Stars",
       "releaseDate": "",
       "deadline": "2026-07-06"
+    },
+    {
+      "id": "id_1782217086755_sfei",
+      "company": "WB",
+      "title": "Cat in The Hat",
+      "releaseDate": "2026-12-03",
+      "deadline": "2026-08-07"
+    },
+    {
+      "id": "id_1782217155456_spcg",
+      "company": "Sony",
+      "title": "Klara and The Sun",
+      "releaseDate": "",
+      "deadline": "2026-06-30"
     }
   ],
   "companies": [
@@ -63,5 +77,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-06-08T08:53:14.996Z"
+  "lastUpdated": "2026-06-23T12:19:22.937Z"
 }
