@@ -146,7 +146,7 @@
         "income": 8000,
         "status": "進行中",
         "estPayoutMonth": "",
-        "checkInvoiceMonth": ""
+        "checkInvoiceMonth": "6月"
       }
     ],
     "07": [
@@ -186,5 +186,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-24T12:35:54.374Z"
+  "lastUpdated": "2026-06-24T12:37:37.292Z"
 }
