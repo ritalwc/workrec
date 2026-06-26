@@ -32,7 +32,7 @@
         "platform": "Pixel",
         "title": "Devil Wears Prada 2",
         "income": 8500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "6月",
         "checkInvoiceMonth": ""
       },
@@ -53,7 +53,7 @@
         "title": "Disclosure Day",
         "income": 15000,
         "status": "等收",
-        "estPayoutMonth": "6月",
+        "estPayoutMonth": "7月",
         "checkInvoiceMonth": ""
       },
       {
@@ -186,5 +186,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-24T12:41:44.768Z"
+  "lastUpdated": "2026-06-26T07:34:10.637Z"
 }
