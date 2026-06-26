@@ -13,7 +13,8 @@
       "Deluxe",
       "META",
       "Eikon Meta",
-      "DOC"
+      "DOC",
+      "MPS"
     ],
     "status": [
       "進行中",
@@ -178,6 +179,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Uni",
+        "platform": "MPS",
+        "title": "One Night Only",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "09": [],
@@ -186,5 +196,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-26T07:34:10.637Z"
+  "lastUpdated": "2026-06-26T07:35:56.450Z"
 }
