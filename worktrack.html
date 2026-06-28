@@ -860,7 +860,7 @@
     function isCheckInvoiceTriggered(row) {
         const comp = row.company;
         const plat = row.platform;
-        return (comp === "WB" || comp === "Sony") && (plat === "Pixel" || plat === "Deluxe");
+        return (comp === "WB" || comp === "AMAZON") && (plat === "Pixel" || plat === "Deluxe");
     }
 
     function handleStatusChange(monthId, rowIndex, newStatus) {
@@ -873,7 +873,7 @@
             if (userInput !== null) row.estPayoutMonth = userInput.trim() || "未填寫";
         } else if (newStatus === "未出invoice" && isCheckInvoiceTriggered(row)) {
             const currentVal = row.checkInvoiceMonth || "";
-            const userInput = prompt("📝 符合特殊規則(WB/Sony 於 Pixel/Deluxe)，請輸入【check 單月份】（例如：6月）：", currentVal || "6月");
+            const userInput = prompt("📝 符合特殊規則(WB/AMAZON 於 Pixel/Deluxe)，請輸入【check 單月份】（例如：6月）：", currentVal || "6月");
             if (userInput !== null) row.checkInvoiceMonth = userInput.trim() || "未填寫";
         }
         
@@ -887,7 +887,7 @@
         const row = workData[monthId][rowIndex];
         
         if (row.status === "未出invoice" && isCheckInvoiceTriggered(row) && !row.checkInvoiceMonth) {
-            const userInput = prompt("📝 變更欄位後符合特殊規則(WB/Sony 於 Pixel/Deluxe)，請輸入【check 單月份】（例如：6月）：", "6月");
+            const userInput = prompt("📝 變更欄位後符合特殊規則(WB/AMAZON 於 Pixel/Deluxe)，請輸入【check 單月份】（例如：6月）：", "6月");
             if (userInput !== null) row.checkInvoiceMonth = userInput.trim() || "未填寫";
         }
         
@@ -987,7 +987,7 @@
                     if (!companyWaitingGroup[comp]) companyWaitingGroup[comp] = [];
                     companyWaitingGroup[comp].push({ title: titleText, desc: `(${payoutMonth}收 / $${amt.toLocaleString()})` });
 
-                    if (comp === "WB" || comp === "Sony") {
+                    if (comp === "WB" || comp === "AMAZON") {
                         if (plat === "Pixel") {
                             platformDetails["Pixel"].push(`${titleText} ${amt}`);
                         } else if (plat === "Deluxe") {
@@ -995,7 +995,7 @@
                         } else if (plat === "META" || plat === "Eikon Meta") {
                             platformDetails["Eikon Meta"].push(`${titleText} ${amt}`);
                         } else {
-                            if (comp === "Sony") platformDetails["Sony"].push(`${titleText} ${amt}`);
+                            if (comp === "AMAZON") platformDetails["Sony"].push(`${titleText} ${amt}`);
                             else if (comp === "WB") platformDetails["Pixel"].push(`${titleText} ${amt}`);
                         }
                     } else {
