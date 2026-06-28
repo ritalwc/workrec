@@ -145,9 +145,9 @@
         "platform": "Deluxe",
         "title": "SpiderMan",
         "income": 8000,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
-        "checkInvoiceMonth": "6月"
+        "checkInvoiceMonth": "未填寫"
       }
     ],
     "07": [
@@ -196,5 +196,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-26T07:35:56.450Z"
+  "lastUpdated": "2026-06-28T12:37:42.789Z"
 }
