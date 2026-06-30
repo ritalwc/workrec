@@ -109,8 +109,8 @@
         "platform": "Deluxe",
         "title": "Odyssey",
         "income": 15000,
-        "status": "未出invoice",
-        "estPayoutMonth": "",
+        "status": "等收",
+        "estPayoutMonth": "8月",
         "checkInvoiceMonth": ""
       },
       {
@@ -118,8 +118,8 @@
         "platform": "Pixel",
         "title": "Minions 3",
         "income": 10500,
-        "status": "未出invoice",
-        "estPayoutMonth": "",
+        "status": "等收",
+        "estPayoutMonth": "8月",
         "checkInvoiceMonth": ""
       },
       {
@@ -165,7 +165,7 @@
         "platform": "Pixel",
         "title": "KLARA AND THE SUN",
         "income": 8000,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       }
@@ -196,5 +196,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-06-28T12:47:03.527Z"
+  "lastUpdated": "2026-06-30T08:35:33.291Z"
 }
