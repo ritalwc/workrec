@@ -26,7 +26,7 @@
       "company": "Uni",
       "title": "One Night Only",
       "releaseDate": "2026-08-27",
-      "deadline": "2026-07-10"
+      "deadline": "2026-07-17"
     },
     {
       "id": "id_1780908157920_9e8s",
@@ -69,6 +69,13 @@
       "title": "Klara and The Sun",
       "releaseDate": "",
       "deadline": "2026-06-30"
+    },
+    {
+      "id": "id_1783343044148_r9pa",
+      "company": "Uni",
+      "title": "Violent Night 2",
+      "releaseDate": "",
+      "deadline": "2026-07-31"
     }
   ],
   "companies": [
@@ -77,5 +84,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-06-23T12:19:22.937Z"
+  "lastUpdated": "2026-07-06T13:04:26.026Z"
 }
