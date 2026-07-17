@@ -174,7 +174,7 @@
         "platform": "MPS",
         "title": "One Night Only",
         "income": 7500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       },
@@ -205,5 +205,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-17T05:00:13.382Z"
+  "lastUpdated": "2026-07-17T06:22:19.330Z"
 }
