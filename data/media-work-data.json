@@ -197,6 +197,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "AMAZON",
+        "platform": "Deluxe",
+        "title": "Veity",
+        "income": 8500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "09": [],
@@ -205,5 +214,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-17T06:22:19.330Z"
+  "lastUpdated": "2026-07-17T12:28:11.083Z"
 }
