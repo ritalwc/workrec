@@ -76,6 +76,13 @@
       "title": "Violent Night 2",
       "releaseDate": "",
       "deadline": "2026-07-31"
+    },
+    {
+      "id": "id_1784291326149_4zw9",
+      "company": "Sony",
+      "title": "Veity",
+      "releaseDate": "",
+      "deadline": "2026-08-03"
     }
   ],
   "companies": [
@@ -84,5 +91,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-07-06T23:06:42.718Z"
+  "lastUpdated": "2026-07-17T12:29:41.121Z"
 }
