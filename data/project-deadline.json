@@ -33,21 +33,21 @@
       "company": "WB",
       "title": "Practical Magic 2",
       "releaseDate": "2026-09-10",
-      "deadline": "2026-07-24"
+      "deadline": "2026-08-05"
     },
     {
       "id": "id_1780908184498_kvfc",
       "company": "Uni",
       "title": "Forgotten Island OV",
       "releaseDate": "2026-09-24",
-      "deadline": "2026-08-17"
+      "deadline": "2026-08-03"
     },
     {
       "id": "id_1780908211900_3joo",
       "company": "Uni",
       "title": "Forgotten Island DV",
       "releaseDate": "2026-09-24",
-      "deadline": "2026-08-26"
+      "deadline": "2026-08-13"
     },
     {
       "id": "id_1780908247494_nxgd",
@@ -83,6 +83,34 @@
       "title": "Veity",
       "releaseDate": "",
       "deadline": "2026-08-03"
+    },
+    {
+      "id": "id_1784551077581_7iqd",
+      "company": "WB",
+      "title": "Digger",
+      "releaseDate": "2026-10-01",
+      "deadline": "2026-08-25"
+    },
+    {
+      "id": "id_1784551116357_q313",
+      "company": "Uni",
+      "title": "Other Mommy",
+      "releaseDate": "2026-10-08",
+      "deadline": "2026-09-02"
+    },
+    {
+      "id": "id_1784551161103_9kzo",
+      "company": "WB",
+      "title": "ClayFace",
+      "releaseDate": "2026-10-22",
+      "deadline": "2026-09-10"
+    },
+    {
+      "id": "id_1784551204817_pz6r",
+      "company": "Uni",
+      "title": "Sense And Sensibility",
+      "releaseDate": "2026-11-19",
+      "deadline": "2026-10-06"
     }
   ],
   "companies": [
@@ -91,5 +119,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-07-17T12:29:41.121Z"
+  "lastUpdated": "2026-07-20T12:40:28.830Z"
 }
