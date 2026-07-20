@@ -53,7 +53,7 @@
         "platform": "Deluxe",
         "title": "Disclosure Day",
         "income": 15000,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "7月",
         "checkInvoiceMonth": ""
       },
@@ -214,5 +214,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-17T15:36:42.510Z"
+  "lastUpdated": "2026-07-20T06:28:24.702Z"
 }
