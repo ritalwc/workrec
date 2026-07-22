@@ -156,8 +156,8 @@
         "platform": "Pixel",
         "title": "Dog Stars",
         "income": 8500,
-        "status": "未出invoice",
-        "estPayoutMonth": "",
+        "status": "等收",
+        "estPayoutMonth": "9月",
         "checkInvoiceMonth": ""
       },
       {
@@ -223,5 +223,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-22T00:55:39.516Z"
+  "lastUpdated": "2026-07-22T04:36:42.225Z"
 }
