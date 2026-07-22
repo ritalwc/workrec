@@ -127,7 +127,7 @@
         "platform": "Pixel",
         "title": "Oak Street",
         "income": 7500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "7月",
         "checkInvoiceMonth": ""
       },
@@ -136,7 +136,7 @@
         "platform": "Pixel",
         "title": "clips",
         "income": 2352,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "7月",
         "checkInvoiceMonth": ""
       },
@@ -206,6 +206,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "META",
+        "title": "Digger",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "09": [],
@@ -214,5 +223,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-20T06:32:53.259Z"
+  "lastUpdated": "2026-07-22T00:24:08.507Z"
 }
