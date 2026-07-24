@@ -89,7 +89,7 @@
         "platform": "DOC",
         "title": "Mando Clips",
         "income": 1250,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "7月",
         "checkInvoiceMonth": ""
       }
@@ -223,5 +223,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-23T09:01:28.534Z"
+  "lastUpdated": "2026-07-24T05:07:43.811Z"
 }
