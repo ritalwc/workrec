@@ -33,14 +33,14 @@
       "company": "WB",
       "title": "Practical Magic 2",
       "releaseDate": "2026-09-10",
-      "deadline": "2026-08-05"
+      "deadline": "2026-08-10"
     },
     {
       "id": "id_1780908184498_kvfc",
       "company": "Uni",
       "title": "Forgotten Island OV",
       "releaseDate": "2026-09-24",
-      "deadline": "2026-08-03"
+      "deadline": "2026-08-04"
     },
     {
       "id": "id_1780908211900_3joo",
@@ -119,5 +119,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-07-20T12:41:42.725Z"
+  "lastUpdated": "2026-07-27T12:23:30.192Z"
 }
