@@ -224,6 +224,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "Deluxe",
+        "title": "Pratical Magic 2",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "09": [
@@ -242,5 +251,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-28T15:17:11.779Z"
+  "lastUpdated": "2026-07-29T02:19:15.791Z"
 }
