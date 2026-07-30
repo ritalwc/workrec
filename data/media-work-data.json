@@ -233,6 +233,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Disney",
+        "platform": "Pixel",
+        "title": "WhaleFall",
+        "income": 8500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "09": [
@@ -251,5 +260,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-29T02:19:15.791Z"
+  "lastUpdated": "2026-07-30T09:54:34.113Z"
 }
