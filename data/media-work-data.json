@@ -71,7 +71,7 @@
         "platform": "Pixel",
         "title": "Toy Story 5",
         "income": 8500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "8月",
         "checkInvoiceMonth": ""
       },
@@ -100,7 +100,7 @@
         "platform": "Pixel",
         "title": "Moana",
         "income": 8500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "8月",
         "checkInvoiceMonth": ""
       },
@@ -260,5 +260,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-30T09:54:34.113Z"
+  "lastUpdated": "2026-07-31T22:20:20.872Z"
 }
