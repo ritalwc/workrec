@@ -203,9 +203,9 @@
         "platform": "Deluxe",
         "title": "Verity",
         "income": 8500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
-        "checkInvoiceMonth": ""
+        "checkInvoiceMonth": "9月"
       },
       {
         "company": "WB",
@@ -260,5 +260,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-07-31T22:20:20.872Z"
+  "lastUpdated": "2026-08-02T06:42:32.783Z"
 }
