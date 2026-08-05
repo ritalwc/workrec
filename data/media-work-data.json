@@ -242,6 +242,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Sony",
+        "platform": "Deluxe",
+        "title": "Resident Evil",
+        "income": 8000,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "09": [
@@ -260,5 +269,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-02T06:42:32.783Z"
+  "lastUpdated": "2026-08-05T04:57:01.082Z"
 }
