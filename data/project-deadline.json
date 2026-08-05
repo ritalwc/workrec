@@ -118,6 +118,13 @@
       "title": "Whalefall",
       "releaseDate": "",
       "deadline": "2026-08-23"
+    },
+    {
+      "id": "id_1785905782756_c695",
+      "company": "Sony",
+      "title": "Resident Evil",
+      "releaseDate": "",
+      "deadline": "2026-08-14"
     }
   ],
   "companies": [
@@ -126,5 +133,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-07-30T09:55:31.157Z"
+  "lastUpdated": "2026-08-05T04:56:31.762Z"
 }
