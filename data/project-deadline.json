@@ -125,6 +125,13 @@
       "title": "Resident Evil",
       "releaseDate": "",
       "deadline": "2026-08-14"
+    },
+    {
+      "id": "id_1785985710252_0hg2",
+      "company": "Disney",
+      "title": "Wild Horse Nine",
+      "releaseDate": "",
+      "deadline": "2026-09-29"
     }
   ],
   "companies": [
@@ -133,5 +140,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-08-05T04:56:31.762Z"
+  "lastUpdated": "2026-08-06T03:08:45.072Z"
 }
