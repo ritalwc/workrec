@@ -193,7 +193,7 @@
         "company": "WB",
         "platform": "META",
         "title": "Cat in The Hat",
-        "income": 10500,
+        "income": 7500,
         "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
@@ -287,5 +287,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-09T13:16:04.426Z"
+  "lastUpdated": "2026-08-09T13:37:45.834Z"
 }
