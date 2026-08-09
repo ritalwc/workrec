@@ -230,9 +230,9 @@
         "platform": "Deluxe",
         "title": "Pratical Magic 2",
         "income": 7500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
-        "checkInvoiceMonth": ""
+        "checkInvoiceMonth": "9月"
       },
       {
         "company": "Disney",
@@ -287,5 +287,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-09T13:14:40.127Z"
+  "lastUpdated": "2026-08-09T13:15:33.080Z"
 }
