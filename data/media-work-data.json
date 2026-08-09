@@ -271,6 +271,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Disney",
+        "platform": "Eikon Meta",
+        "title": "Wild Horse Nine",
+        "income": 8500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "01_next": [],
@@ -278,5 +287,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-07T00:48:58.339Z"
+  "lastUpdated": "2026-08-09T13:14:40.127Z"
 }
