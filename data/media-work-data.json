@@ -109,7 +109,7 @@
         "platform": "Deluxe",
         "title": "Odyssey",
         "income": 15000,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "8月",
         "checkInvoiceMonth": ""
       },
@@ -118,7 +118,7 @@
         "platform": "Pixel",
         "title": "Minions 3",
         "income": 10500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "8月",
         "checkInvoiceMonth": ""
       },
@@ -287,5 +287,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-11T00:09:22.963Z"
+  "lastUpdated": "2026-08-11T13:02:08.763Z"
 }
