@@ -132,6 +132,13 @@
       "title": "Wild Horse Nine",
       "releaseDate": "",
       "deadline": "2026-09-29"
+    },
+    {
+      "id": "id_1787049207587_ea82",
+      "company": "Sony",
+      "title": "The Social Reckoning",
+      "releaseDate": "",
+      "deadline": "2026-09-10"
     }
   ],
   "companies": [
@@ -140,5 +147,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-08-06T03:40:06.702Z"
+  "lastUpdated": "2026-08-18T10:35:43.698Z"
 }
