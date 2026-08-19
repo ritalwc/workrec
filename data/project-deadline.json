@@ -96,21 +96,21 @@
       "company": "Uni",
       "title": "Other Mommy",
       "releaseDate": "2026-10-08",
-      "deadline": "2026-09-02"
+      "deadline": "2026-09-07"
     },
     {
       "id": "id_1784551161103_9kzo",
       "company": "WB",
       "title": "ClayFace",
       "releaseDate": "2026-10-22",
-      "deadline": "2026-09-10"
+      "deadline": "2026-09-16"
     },
     {
       "id": "id_1784551204817_pz6r",
       "company": "Uni",
       "title": "Sense And Sensibility",
       "releaseDate": "2026-11-19",
-      "deadline": "2026-10-06"
+      "deadline": "2026-09-25"
     },
     {
       "id": "id_1785405297565_pjdj",
@@ -139,6 +139,13 @@
       "title": "The Social Reckoning",
       "releaseDate": "",
       "deadline": "2026-09-10"
+    },
+    {
+      "id": "id_1787130236575_fzr9",
+      "company": "WB",
+      "title": "Dune 3",
+      "releaseDate": "2026-12-16",
+      "deadline": "2026-11-06"
     }
   ],
   "companies": [
@@ -147,5 +154,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-08-18T10:35:43.698Z"
+  "lastUpdated": "2026-08-19T09:04:58.500Z"
 }
