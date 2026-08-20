@@ -146,6 +146,13 @@
       "title": "Dune 3",
       "releaseDate": "2026-12-16",
       "deadline": "2026-11-06"
+    },
+    {
+      "id": "id_1787219317715_n603",
+      "company": "WB",
+      "title": "Cat in the Hat DV",
+      "releaseDate": "",
+      "deadline": "2026-09-18"
     }
   ],
   "companies": [
@@ -154,5 +161,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-08-19T14:47:46.577Z"
+  "lastUpdated": "2026-08-20T09:50:02.706Z"
 }
