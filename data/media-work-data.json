@@ -307,6 +307,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "Eikon Meta",
+        "title": "Clayface",
+        "income": 8000,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "01_next": [],
@@ -314,5 +323,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-22T03:45:35.429Z"
+  "lastUpdated": "2026-08-26T01:06:24.658Z"
 }
