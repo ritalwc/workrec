@@ -321,7 +321,16 @@
         "company": "WB",
         "platform": "Eikon Meta",
         "title": "Clayface",
-        "income": 8000,
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "DOC",
+        "title": "Intern",
+        "income": 7500,
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
@@ -332,5 +341,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-31T09:21:02.365Z"
+  "lastUpdated": "2026-08-31T10:27:40.185Z"
 }
