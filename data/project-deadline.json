@@ -103,7 +103,7 @@
       "company": "WB",
       "title": "ClayFace",
       "releaseDate": "2026-10-22",
-      "deadline": "2026-09-16"
+      "deadline": "2026-09-21"
     },
     {
       "id": "id_1784551204817_pz6r",
@@ -153,6 +153,13 @@
       "title": "Cat in the Hat DV",
       "releaseDate": "",
       "deadline": "2026-09-18"
+    },
+    {
+      "id": "id_1788167146703_8pa3",
+      "company": "WB",
+      "title": "The Intern",
+      "releaseDate": "2026-10-15",
+      "deadline": "2026-09-14"
     }
   ],
   "companies": [
@@ -161,5 +168,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-08-20T09:50:02.706Z"
+  "lastUpdated": "2026-08-31T09:06:38.863Z"
 }
