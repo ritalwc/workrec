@@ -277,7 +277,7 @@
         "platform": "Pixel",
         "title": "Violent Night 2",
         "income": 7500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       },
@@ -332,5 +332,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-08-31T06:14:21.737Z"
+  "lastUpdated": "2026-08-31T09:09:58.272Z"
 }
