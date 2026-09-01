@@ -325,15 +325,6 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
-      },
-      {
-        "company": "WB",
-        "platform": "DOC",
-        "title": "Intern",
-        "income": 7500,
-        "status": "進行中",
-        "estPayoutMonth": "",
-        "checkInvoiceMonth": ""
       }
     ],
     "01_next": [],
@@ -341,5 +332,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-09-01T03:10:56.395Z"
+  "lastUpdated": "2026-09-01T05:41:31.275Z"
 }
