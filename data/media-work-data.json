@@ -230,8 +230,8 @@
         "platform": "Deluxe",
         "title": "Pratical Magic 2",
         "income": 7500,
-        "status": "未出invoice",
-        "estPayoutMonth": "",
+        "status": "等收",
+        "estPayoutMonth": "11月",
         "checkInvoiceMonth": "9月"
       },
       {
@@ -304,7 +304,7 @@
         "platform": "Pixel",
         "title": "The Social Reckoning",
         "income": 8000,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       },
@@ -322,7 +322,7 @@
         "platform": "Deluxe",
         "title": "Other Mommy",
         "income": 7500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       },
@@ -341,5 +341,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-09-01T08:25:03.469Z"
+  "lastUpdated": "2026-09-07T08:38:55.461Z"
 }
