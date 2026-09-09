@@ -248,7 +248,7 @@
         "platform": "Deluxe",
         "title": "Resident Evil",
         "income": 8000,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "9月",
         "checkInvoiceMonth": ""
       },
@@ -341,5 +341,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-09-08T12:28:50.572Z"
+  "lastUpdated": "2026-09-09T12:14:40.432Z"
 }
