@@ -24,7 +24,17 @@
     ]
   },
   "workData": {
-    "10": [],
+    "10": [
+      {
+        "company": "Disney",
+        "platform": "Pixel",
+        "title": "Hexed",
+        "income": 8500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      }
+    ],
     "11": [],
     "12": [],
     "04": [
@@ -341,5 +351,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-09-11T00:13:06.452Z"
+  "lastUpdated": "2026-09-15T05:41:31.252Z"
 }
