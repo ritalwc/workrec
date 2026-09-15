@@ -160,6 +160,13 @@
       "title": "The Intern",
       "releaseDate": "2026-10-15",
       "deadline": "2026-09-14"
+    },
+    {
+      "id": "id_1789450800327_rhng",
+      "company": "Disney",
+      "title": "Hexed",
+      "releaseDate": "",
+      "deadline": "2026-10-09"
     }
   ],
   "companies": [
@@ -168,5 +175,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-08-31T09:06:38.863Z"
+  "lastUpdated": "2026-09-15T05:40:39.406Z"
 }
