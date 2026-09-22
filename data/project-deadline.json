@@ -167,6 +167,13 @@
       "title": "Hexed",
       "releaseDate": "",
       "deadline": "2026-10-09"
+    },
+    {
+      "id": "id_1790069131096_gp9c",
+      "company": "Disney",
+      "title": "Avengers 4",
+      "releaseDate": "",
+      "deadline": "2026-11-18"
     }
   ],
   "companies": [
@@ -175,5 +182,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-09-15T05:40:39.406Z"
+  "lastUpdated": "2026-09-22T09:27:00.686Z"
 }
