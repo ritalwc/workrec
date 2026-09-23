@@ -295,7 +295,7 @@
         "platform": "Pixel",
         "title": "Clip",
         "income": 1965,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "10月",
         "checkInvoiceMonth": ""
       }
@@ -361,5 +361,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-09-22T13:04:29.552Z"
+  "lastUpdated": "2026-09-23T00:33:18.073Z"
 }
