@@ -223,7 +223,7 @@
         "platform": "META",
         "title": "Cat in The Hat",
         "income": 7500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "10月",
         "checkInvoiceMonth": ""
       },
@@ -370,5 +370,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-10-05T18:03:17.509Z"
+  "lastUpdated": "2026-10-06T07:45:05.106Z"
 }
