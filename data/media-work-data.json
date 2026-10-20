@@ -33,15 +33,6 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
-      },
-      {
-        "company": "WB",
-        "platform": "META",
-        "title": "Cat in the Hat DV",
-        "income": 7500,
-        "status": "進行中",
-        "estPayoutMonth": "",
-        "checkInvoiceMonth": ""
       }
     ],
     "11": [
@@ -370,5 +361,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-10-13T14:41:21.843Z"
+  "lastUpdated": "2026-10-20T13:04:57.240Z"
 }
