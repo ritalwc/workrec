@@ -53,6 +53,24 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Sony",
+        "platform": "Pixel",
+        "title": "Jumuji",
+        "income": 8000,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      },
+      {
+        "company": "WB",
+        "platform": "Deluxe",
+        "title": "DUNE 3",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "12": [],
@@ -370,5 +388,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-10-30T16:23:04.319Z"
+  "lastUpdated": "2026-10-30T16:24:22.098Z"
 }
