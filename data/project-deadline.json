@@ -181,6 +181,13 @@
       "title": "Jumanji: Open World",
       "releaseDate": "",
       "deadline": "2026-11-24"
+    },
+    {
+      "id": "id_1793604872024_4p79",
+      "company": "Sony",
+      "title": "Crown",
+      "releaseDate": "",
+      "deadline": "2026-12-02"
     }
   ],
   "companies": [
@@ -189,5 +196,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-11-02T01:55:56.057Z"
+  "lastUpdated": "2026-11-02T07:34:39.030Z"
 }
