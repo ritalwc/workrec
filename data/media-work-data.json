@@ -388,7 +388,7 @@
         "platform": "Eikon Meta",
         "title": "Clayface",
         "income": 7500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "11月",
         "checkInvoiceMonth": ""
       }
@@ -398,5 +398,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-11-02T07:34:02.706Z"
+  "lastUpdated": "2026-11-05T12:51:22.197Z"
 }
