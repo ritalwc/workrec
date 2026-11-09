@@ -68,9 +68,9 @@
         "platform": "Deluxe",
         "title": "DUNE 3",
         "income": 7500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
-        "checkInvoiceMonth": ""
+        "checkInvoiceMonth": "12月"
       }
     ],
     "12": [
@@ -231,7 +231,7 @@
         "platform": "MPS",
         "title": "One Night Only",
         "income": 7500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "11月",
         "checkInvoiceMonth": ""
       },
@@ -278,7 +278,7 @@
         "platform": "Pixel",
         "title": "Forgotten Island",
         "income": 10500,
-        "status": "等收",
+        "status": "已收",
         "estPayoutMonth": "11月",
         "checkInvoiceMonth": ""
       },
@@ -398,5 +398,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-11-06T00:52:27.241Z"
+  "lastUpdated": "2026-11-09T12:55:00.407Z"
 }
