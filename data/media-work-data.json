@@ -30,8 +30,8 @@
         "platform": "Pixel",
         "title": "Hexed",
         "income": 8500,
-        "status": "未出invoice",
-        "estPayoutMonth": "",
+        "status": "等收",
+        "estPayoutMonth": "1月",
         "checkInvoiceMonth": ""
       },
       {
@@ -352,8 +352,8 @@
         "platform": "Eikon Meta",
         "title": "Wild Horse Nine",
         "income": 8500,
-        "status": "未出invoice",
-        "estPayoutMonth": "",
+        "status": "等收",
+        "estPayoutMonth": "1月",
         "checkInvoiceMonth": ""
       },
       {
@@ -398,5 +398,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-11-09T12:55:51.737Z"
+  "lastUpdated": "2026-11-10T07:19:00.590Z"
 }
