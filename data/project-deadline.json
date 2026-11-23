@@ -188,6 +188,13 @@
       "title": "Crown",
       "releaseDate": "",
       "deadline": "2026-12-02"
+    },
+    {
+      "id": "id_1795421198189_d0r9",
+      "company": "Uni",
+      "title": "Werwulf",
+      "releaseDate": "",
+      "deadline": "2026-12-08"
     }
   ],
   "companies": [
@@ -196,5 +203,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-11-02T07:34:39.030Z"
+  "lastUpdated": "2026-11-23T08:06:52.502Z"
 }
