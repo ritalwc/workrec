@@ -82,6 +82,15 @@
         "status": "進行中",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
+      },
+      {
+        "company": "Uni",
+        "platform": "Deluxe",
+        "title": "Werwulf",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
       }
     ],
     "04": [
@@ -398,5 +407,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-11-23T06:37:09.720Z"
+  "lastUpdated": "2026-11-23T08:05:54.396Z"
 }
