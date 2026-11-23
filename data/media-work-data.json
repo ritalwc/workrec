@@ -50,7 +50,7 @@
         "platform": "Pixel",
         "title": "Avengers 4",
         "income": 8500,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       },
@@ -59,7 +59,7 @@
         "platform": "Pixel",
         "title": "Jumuji",
         "income": 8000,
-        "status": "進行中",
+        "status": "未出invoice",
         "estPayoutMonth": "",
         "checkInvoiceMonth": ""
       },
@@ -398,5 +398,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-11-10T07:19:00.590Z"
+  "lastUpdated": "2026-11-23T06:37:09.720Z"
 }
