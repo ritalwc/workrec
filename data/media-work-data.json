@@ -403,9 +403,19 @@
       }
     ],
     "01_next": [],
-    "02_next": [],
+    "02_next": [
+      {
+        "company": "Uni",
+        "platform": "Deluxe",
+        "title": "ComeBack King",
+        "income": 7500,
+        "status": "進行中",
+        "estPayoutMonth": "",
+        "checkInvoiceMonth": ""
+      }
+    ],
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-11-23T08:05:54.396Z"
+  "lastUpdated": "2026-11-24T08:32:02.087Z"
 }
