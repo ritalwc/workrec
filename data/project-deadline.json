@@ -209,6 +209,13 @@
       "title": "Ice Age",
       "releaseDate": "",
       "deadline": "2027-01-06"
+    },
+    {
+      "id": "id_1795508897260_rfdw",
+      "company": "Uni",
+      "title": "Come Back King",
+      "releaseDate": "",
+      "deadline": "2027-02-17"
     }
   ],
   "companies": [
@@ -217,5 +224,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-11-23T12:49:27.188Z"
+  "lastUpdated": "2026-11-24T08:29:05.357Z"
 }
