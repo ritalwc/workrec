@@ -216,6 +216,13 @@
       "title": "Come Back King",
       "releaseDate": "",
       "deadline": "2027-02-17"
+    },
+    {
+      "id": "id_1795748407497_iigb",
+      "company": "Uni",
+      "title": "THE EXORCIST: MARTYRS",
+      "releaseDate": "2027-03-11",
+      "deadline": "2027-02-01"
     }
   ],
   "companies": [
@@ -224,5 +231,5 @@
     "WB",
     "Sony"
   ],
-  "lastUpdated": "2026-11-24T08:29:05.357Z"
+  "lastUpdated": "2026-11-27T03:00:34.285Z"
 }
