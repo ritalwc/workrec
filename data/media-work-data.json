@@ -40,7 +40,7 @@
         "title": "cat in hat",
         "income": 7500,
         "status": "等收",
-        "estPayoutMonth": "11月",
+        "estPayoutMonth": "12月",
         "checkInvoiceMonth": ""
       }
     ],
@@ -362,7 +362,7 @@
         "title": "Violent Night 2",
         "income": 7500,
         "status": "等收",
-        "estPayoutMonth": "11月",
+        "estPayoutMonth": "12月",
         "checkInvoiceMonth": ""
       },
       {
@@ -389,7 +389,7 @@
         "title": "Sense and Sensibility",
         "income": 7500,
         "status": "等收",
-        "estPayoutMonth": "11月",
+        "estPayoutMonth": "12月",
         "checkInvoiceMonth": ""
       },
       {
@@ -398,7 +398,7 @@
         "title": "Other Mommy",
         "income": 7500,
         "status": "等收",
-        "estPayoutMonth": "11月",
+        "estPayoutMonth": "12月",
         "checkInvoiceMonth": ""
       },
       {
@@ -426,5 +426,5 @@
     "03_next": [],
     "04_next": []
   },
-  "lastUpdated": "2026-11-27T04:37:53.032Z"
+  "lastUpdated": "2026-11-27T06:41:47.541Z"
 }
